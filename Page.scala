@@ -65,8 +65,8 @@ class Page(val url: String, val doc: Document, val links: Set[String], val text:
   //   can be converted to Scala collections using the .asScala method,
   //   like in Page.getLinks
 
-  def topWord():String = {
+  def wordCounts():Map[String,Int] = {
     val words = doc.body().text().split(' ');
-    words.groupBy(identity).mapValues(_.size).maxBy(_._2)._1
+    words.groupBy(identity).mapValues(_.size)
   }
 }
