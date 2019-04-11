@@ -22,7 +22,7 @@ class Prompter extends Actor {
   //   2. use the following line instead of def receive = {
   //def receive = akka.event.LoggingReceive {
   def receive = {
-    case start: StartPrompting => startQuery(sender)
+    //case start: StartPrompting => startQuery(sender)
     case res: SearchResults => {
       println("Searched for [" + res.query + "] in " + res.numIndexedPages + " web pages...")
       res.top(numResultsToDisplay).foreach{ case (url, score) => printf("%10.4f   %s\n", score, url) }
